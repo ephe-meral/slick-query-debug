@@ -1,0 +1,16 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%level %logger{15} - %message%n%xException</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="slick.jdbc.JdbcBackend.statement" level="DEBUG"/>
+    <logger name="slick.jdbc.JdbcBackend.benchmark" level="DEBUG"/>
+    <logger name="slick.jdbc.StatementInvoker.result" level="DEBUG" />
+    <logger name="slick.compiler.QueryCompilerBenchmark" level="DEBUG" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
