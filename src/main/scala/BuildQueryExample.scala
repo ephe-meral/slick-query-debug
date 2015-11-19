@@ -37,32 +37,4 @@ object BuildQueryExample {
       if aVal.id === bVal.tableAId
       if aVal.active === true
     } yield { bVal }
-
-
-  /*
-  for {
-    aValues <- tableA
-    if
-    aliases <- productIdsQuery(noRedirectQuery(Tables.aliasTable), productIds)
-    dbProduct <- Tables.productTable
-    if dbProduct.id === aliases.productId
-    if dbProduct.comparableFeatures.+>>(ActivationStatusFeature.id) =!= ActivationStatus.INACTIVE.toString
-    dbVendor <- Tables.vendorTable
-    if dbVendor.id === dbProduct.vendorId
-    if dbVendor.features.+>>(ActivationStatusFeature.id) =!= ActivationStatus.INACTIVE.toString
-  } yield { aliases }
-
-  def noRedirectQuery(query: Query[AliasTable, AliasRow, Seq]) = {
-    query.filter(at => at.redirect.isEmpty)
-  }
-
-  def filterAliasQuery(query: Query[AliasTable, AliasRow, Seq], namespace: String, alias: String) = {
-    query.filter { aliasRow => aliasRow.namespace === namespace && aliasRow.alias === alias }
-  }
-
-  def productIdsQuery(query: Query[AliasTable, AliasRow, Seq], productIds: Seq[ProductId]) = {
-    val uuids = productIds.map(_.uuid)
-    query.filter(at => at.productId inSetBind uuids)
-  }
-  */
 }
